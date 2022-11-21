@@ -1,4 +1,29 @@
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-theme = 'ananke'
+baseURL = "https://xdpcs.github.io"
+copyright = "© Jacy Xu"
+languageCode = "en-us"
+theme = "hugo-ink"
+title = "Jacy Xu"
+# Code Highlight
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+pygmentsstyle = "vs"
+paginate = 10 # articles per page
+
+googleAnalytics = "UA-52525161-8"
+
+[params]
+avatar = "https://avatars.githubusercontent.com/u/72180730"
+mode = "light"
+featherIconsCDN = true
+subtitle = "Talking about technology with a glow in the eye."
+excludedTypes = ["page", "pages"]
+
+[[params.social]]
+icon = "github"
+name = "GitHub"
+url = "https://github.com/xdpcs"
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
