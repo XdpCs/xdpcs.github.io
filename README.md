@@ -1,3 +1,3 @@
-xdpcs.github.io
+# Hi, I'm Jacy Xu.
 
-部署： hugo --theme=hugo-ink  --baseUrl="https://xdpcs.github.io" # hugo-website
+This is the source code of my personal website. You may visit it at [xdpcs.github.io](https://xdpcs.github.io).
