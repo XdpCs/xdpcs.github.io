@@ -9,7 +9,7 @@ languageCode = "en"
 enableRobotsTXT = true
 paginate = 10
 summaryLength = 0
-title = "XdpCs's blog"
+
 googleAnalytics = "G-MEASUREMENT_ID"
 
 [outputs]

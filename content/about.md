@@ -10,4 +10,4 @@ showDate: false
 ## Contact
 
 - [GitHub](https://github.com/XdpCs)
-- [Email](xdpcsyy@gmail.com) 
+- [Email](mailto:xdpcsyy@gmail.com) 

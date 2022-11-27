@@ -1,4 +1,4 @@
 ---
-title: "Blogs"
-description: "XdpCs’s blogs"
+title: "Blog"
+description: "XdpCs’s blog"
 ---
