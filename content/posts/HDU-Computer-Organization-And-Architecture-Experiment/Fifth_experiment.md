@@ -3,6 +3,7 @@ title: "杭电计算机组成实验 实验5-存储器设计实验"
 description: "Welcome to XdpCs’s blog!"
 date: "2020-12-22"
 tags: ["存储器"]
+showComments: true
 ---
 
 ## 实验内容
