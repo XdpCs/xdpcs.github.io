@@ -12,11 +12,10 @@ summaryLength = 0
 title = "XdpCs's blog"
 googleAnalytics = "G-MEASUREMENT_ID"
 
-[params.utterances]
+[params.utteranc]
 repo="XdpCs/xdpcs.github.io"
-issue-term="pathname"
+issue-term="title"
 theme="github-dark-orange"
-crossorigin="anonymous"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
