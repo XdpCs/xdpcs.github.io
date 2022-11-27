@@ -57,6 +57,13 @@ robots = "all"
   groupByYear = true
   paginationWidth = 1
 
+
+[utteranc]
+repo = "XdpCs/xdpcs.github.io"
+enable = true
+issue-term = "title"
+theme = "github-dark-orange"
+
 [sitemap]
   excludedKinds = ["taxonomy", "term"]
 
