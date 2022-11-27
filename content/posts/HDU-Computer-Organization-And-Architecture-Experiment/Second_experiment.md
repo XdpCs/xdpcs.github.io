@@ -3,6 +3,7 @@ title: "杭电计算机组成实验 实验2-超前进位加法器设计实验"
 description: "Welcome to XdpCs’s blog!"
 date: "2020-12-21"
 tags: ["超前进位加法器"]
+showComments: true
 ---
 
 ## 实验内容

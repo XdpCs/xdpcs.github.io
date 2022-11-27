@@ -58,10 +58,11 @@ robots = "all"
   paginationWidth = 1
 
 
-[utteranc]
+[utterances]
 repo = "XdpCs/xdpcs.github.io"
 enable = true
 issue-term = "title"
+label = "Comment"
 theme = "github-dark-orange"
 
 [sitemap]

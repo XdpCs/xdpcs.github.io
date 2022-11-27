@@ -3,6 +3,7 @@ title: "杭电计算机组成实验 实验6-MIPS汇编器与模拟器实验"
 description: "Welcome to XdpCs’s blog!"
 date: "2020-12-22"
 tags: ["MIPS"]
+showComments: true
 ---
 
 ## 实验内容
