@@ -20,8 +20,8 @@ showComments: true
 4. 对于条件转移指令beq和bne要使用ALU做减法，判断是否全为零，也就是用ZF判断是否转移
 5. J型指令可以接着I型指令的case结构写下来，与J型case结构无冲突
 6. 由于实验九和实验十想法十分接近，主要是控制信号的改变，及其译码模块的改变
-7. 涉及实验：具体用到的实验是[多功能ALU设计实验](../third_experiment.md)、[寄存器堆设计实验](../fourth_experiment.md)
-   、[取指令与指令译码实验](../seventh_experiment.md)
+7. 涉及实验：具体用到的实验是[多功能ALU设计实验](../third_experiment)、[寄存器堆设计实验](../fourth_experiment)
+   、[取指令与指令译码实验](../seventh_experiment)
 8. 代码展示
 
 **顶层模块**
