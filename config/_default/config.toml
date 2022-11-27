@@ -14,7 +14,8 @@ googleAnalytics = "G-MEASUREMENT_ID"
 
 [params.utterances]
 owner = "XdpCs"
-repo = "xdpcs.github.io"
+enable = true
+repo = "XdpCs/xdpcs.github.io"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
