@@ -12,5 +12,9 @@ summaryLength = 0
 title = "XdpCs's blog"
 googleAnalytics = "G-MEASUREMENT_ID"
 
+[params.utterances]
+owner = "XdpCs"
+repo = "xdpcs.github.io"
+
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+home = ["HTML", "RSS", "JSON"]
