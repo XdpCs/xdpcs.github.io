@@ -13,9 +13,10 @@ title = "XdpCs's blog"
 googleAnalytics = "G-MEASUREMENT_ID"
 
 [params.utterances]
-owner = "XdpCs"
-enable = true
-repo = "XdpCs/xdpcs.github.io"
+repo="XdpCs/xdpcs.github.io"
+issue-term="pathname"
+theme="github-dark-orange"
+crossorigin="anonymous"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
