@@ -3,14 +3,13 @@
 # https://jpanther.github.io/congo/docs/getting-started/
 
 # baseURL = "https://your_domain.com/"
-baseURL = "https://xdpcs.github.io"
+baseURL = "https://xdpcs.github.io/"
 languageCode = "en"
 
 enableRobotsTXT = true
 paginate = 10
 summaryLength = 0
 
-googleAnalytics = "G-MEASUREMENT_ID"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
