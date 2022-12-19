@@ -14,7 +14,7 @@ dateFormat = "2 January 2006"
 [author]
 name = "XdpCs"
 image = "images/avatar.jpeg"
-headline = "Software Developer."
+headline = "Golang Developer"
 bio = "Talking about technology with a glow in the eye."
 links = [
     { email = "mailto:xdpcsyy@gmail.com" },
