@@ -9,7 +9,7 @@ showComments: true
 ## 问题1
 
 ```shell
-found no layout file for "HTML" for kind "page": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+found no layout file for "HTML" for kind "page": You should create a template file which matches hugo Layouts Lookup Rules for this combination.
 ```
 
 ### 解决方法
