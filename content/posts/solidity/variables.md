@@ -1,7 +1,7 @@
 ---
 title: "4-变量"
 description: "Welcome to XdpCs’s blog!"
-date: "2022-09-17"
+date: "2022-09-14"
 tags: ["solidity"]
 showComments: true
 ---
