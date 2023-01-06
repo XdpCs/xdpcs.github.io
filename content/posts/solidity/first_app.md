@@ -1,7 +1,7 @@
 ---
 title: "2-第一个App"
 description: "Welcome to XdpCs’s blog!"
-date: "2022-09-16"
+date: "2022-09-12"
 tags: ["solidity"]
 showComments: true
 ---

@@ -1,7 +1,7 @@
 ---
 title: "5-常量"
 description: "Welcome to XdpCs’s blog!"
-date: "2022-09-17"
+date: "2022-09-15"
 tags: ["solidity"]
 showComments: true
 ---
