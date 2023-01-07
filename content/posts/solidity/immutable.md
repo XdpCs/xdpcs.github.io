@@ -2,7 +2,7 @@
 title: "6-不可变变量"
 description: "Welcome to XdpCs’s blog!"
 date: "2022-09-16"
-tags: ["solidity"]
+tags: ["Solidity"]
 showComments: true
 ---
 

@@ -2,7 +2,7 @@
 title: "7-读取和写入状态变量"
 description: "Welcome to XdpCs’s blog!"
 date: "2022-09-17"
-tags: ["solidity"]
+tags: ["Solidity"]
 showComments: true
 ---
 

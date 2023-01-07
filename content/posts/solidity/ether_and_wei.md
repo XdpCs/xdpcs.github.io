@@ -2,7 +2,7 @@
 title: "8-以太币单位"
 description: "Welcome to XdpCs’s blog!"
 date: "2022-09-18"
-tags: ["solidity"]
+tags: ["Solidity"]
 showComments: true
 ---
 

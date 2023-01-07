@@ -2,7 +2,7 @@
 title: "3-原始数据类型"
 description: "Welcome to XdpCs’s blog!"
 date: "2022-09-13"
-tags: ["solidity"]
+tags: ["Solidity"]
 showComments: true
 ---
 
