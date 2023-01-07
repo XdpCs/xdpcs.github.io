@@ -28,6 +28,8 @@ showComments: true
 
 ## 例子
 
+[例子](https://github.com/XdpCs/Solidity-Learning/blob/master/contracts/EtherAndWei/EtherUnits.sol)
+
 该例子是测试以太币的单位换算
 
 ```solidity
