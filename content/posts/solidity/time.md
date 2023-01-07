@@ -24,7 +24,7 @@ showComments: true
 
 ## 例子
 
-[例子](./Time.sol)
+[例子](https://github.com/XdpCs/Solidity-Learning/blob/master/contracts/Time/Time.sol)
 
 该例子是判断当前时间是否大于合约部署后的一分钟
 
