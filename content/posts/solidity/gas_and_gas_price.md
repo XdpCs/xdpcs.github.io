@@ -23,7 +23,7 @@ showComments: true
 
 ## 例子
 
-[例子](./Gas.sol)
+[例子](https://github.com/XdpCs/Solidity-Learning/blob/master/contracts/GasAndGasPrice/Gas.sol)
 
 该例子是表示函数出现死循环，消耗完用户所提供的所有`gas`，导致交易失败
 
@@ -53,8 +53,3 @@ contract Gas {
 ```
 
 * 这个循环会运行到直至所有`gas`消耗光，然后交易失败
-
-## 链接
-
-* 上一节：[9-时间单位](../Time/Time.md)
-* 下一节：[11-枚举](../EnumDemo/Enum.md)
