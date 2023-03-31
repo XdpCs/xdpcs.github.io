@@ -8,3 +8,7 @@
 ![GitHub license](https://img.shields.io/github/license/XdpCs/xdpcs.github.io?style=flat-square)
 
 This is the source code of my personal website. You may visit it at [xdpcs.github.io](https://xdpcs.github.io).
+
+## License
+
+xdpcs.github.io is under the [MIT](LICENSE). Please refer to LICENSE for more information.
