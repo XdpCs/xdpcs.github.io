@@ -2,7 +2,7 @@
 title: "杭电计算机组成实验 实验7-取指令与指令译码实验"
 description: "Welcome to XdpCs’s blog!"
 date: "2020-12-22"
-tags: ["取指令与指令译码"]
+tags: ["取指令与指令译码","杭电计算机组成实验"]
 showComments: true
 ---
 

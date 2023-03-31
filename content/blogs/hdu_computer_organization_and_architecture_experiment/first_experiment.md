@@ -2,7 +2,7 @@
 title: "杭电计算机组成实验 实验1-全加器设计实验"
 description: "Welcome to XdpCs’s blog!"
 date: "2020-12-21"
-tags: ["全加器"]
+tags: ["全加器","杭电计算机组成实验"]
 showComments: true
 ---
 
