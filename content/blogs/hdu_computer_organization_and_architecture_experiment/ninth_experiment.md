@@ -2,7 +2,7 @@
 title: "杭电计算机组成实验 实验9-实现R-I型指令的CPU设计实验"
 description: "Welcome to XdpCs’s blog!"
 date: "2020-12-25"
-tags: ["R-I型指令"]
+tags: ["R-I型指令","杭电计算机组成实验"]
 showComments: true
 ---
 
