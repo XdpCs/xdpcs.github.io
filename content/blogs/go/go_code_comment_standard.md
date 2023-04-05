@@ -1,5 +1,5 @@
 ---
-title: "Go-Code-Comment-Standard"
+title: "Go语言注释规范"
 description: "Welcome to XdpCs’s blog!"
 date: "2023-03-13"
 tags: ["Golang"]
