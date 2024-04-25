@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on XdpCs&#39;s Website</title>
+    <link>http://localhost:1313/blogs/</link>
+    <description>Recent content in Blog on XdpCs&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© Alan Xu</copyright>
+    <lastBuildDate>Wed, 06 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>011-结构体(Struct)</title>
+      <link>http://localhost:1313/blogs/solidity/011.structs/</link>
+      <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/solidity/011.structs/</guid>
+      <description>背景 #通过学习Solidity，然后输出文章检验自己的学习成果github仓库</description>
+    </item>
+    <item>
+      <title>010-映射(Mapping)</title>
+      <link>http://localhost:1313/blogs/solidity/010.mapping/</link>
+      <pubDate>Tue, 05 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/solidity/010.mapping/</guid>
+      <description>背景 #通过学习Solidity，然后输出文章检验自己的学习成果github仓库</description>
+    </item>
+    <item>
+      <title>009-Gas和Gas价格</title>
+      <link>http://localhost:1313/blogs/solidity/009.gas_and_gas_price/</link>
+      <pubDate>Sat, 02 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/solidity/009.gas_and_gas_price/</guid>
+      <description>背景 #通过学习Solidity，然后输出文章检验自己的学习成果github仓库</description>
+    </item>
+    <item>
+      <title>Go打印结构体指针中的具体内容，而无需实现String()方法</title>
+      <link>http://localhost:1313/blogs/go/print_value/</link>
+      <pubDate>Thu, 09 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/go/print_value/</guid>
+      <description>痛点 #例子 #package main import &amp;#34;fmt&amp;#34; type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func main() { t := &amp;amp;TreeNode{ Val: 1, Left: &amp;amp;TreeNode{ Val: 2, }, Right: &amp;amp;TreeNode{ Val: 3, }, } fmt.</description>
+    </item>
+    <item>
+      <title>第1章-入门-笔记</title>
+      <link>http://localhost:1313/blogs/gopl/ch1/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/gopl/ch1/</guid>
+      <description>1.1 hello,world # Go是编译型语言 Go的工具链将程序的源文件转变成为机器相关的原生二进制指令 go run 将一个或多个以.</description>
+    </item>
+    <item>
+      <title>Go语言注释规范</title>
+      <link>http://localhost:1313/blogs/go/go_code_comment_standard/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/go/go_code_comment_standard/</guid>
+      <description>背景 # 当新接手他人的项目，我们很容易不知所措，不知道这个函数的作用是什么，即使有很好的命名规范，这种事情也会时常发生，甚至有时候几个月不碰这个项目，自己再看这个函数，也会有一种云里雾里的感觉 如果拥有好的注释，方便我们自己以后维护，也方便后来的同事接手你的项目，不至于对你的代码说这写的是啥，像一坨💩 注释规范 # 注释语言看团队，我们团队习惯使用英文，所以都使用英文，只要整个团队统一一个注释语言即可 全部使用单行注释,//后需要使用一个空格 包注释 # 包注释是对包的介绍 每个包都至少有一个包注释，在同一个包下，任一一个源文件中注释即可 放置在package之前，来简短描述这个包的功能 // 包的功能介绍 package 包名称 文件注释 # 每个文件都应有一个文件注释 放置在package之后，需要包含文件名称，文件描述，文件作者及其时间，更新作者及其时间 因为在公司正常开发流程中，可能合并分支的时候，只有自己部门的业务主管，有这个权限进行合并代码，如果去看git的日志，如果只看主分支，只会显示主管的id，很难很快落实到每个人上 package 包名称 // @Title 文件名称 // @Description 文件描述 // @Create 创建作者 日期 时间 // @Update 更新作者 日期 时间 结构体注释和接口注释 # 每个结构体或接口都应有注释 在结构体或接口定义上面，需要有一个对整个结构体或接口的简要介绍 结构体或接口内的每个成员变量也需要有注释 // User defines user login info type User struct { UserName string // user&amp;#39;s name Password string // user&amp;#39;s password } // IUser defines user function type IUser interface { Login() // user login into the system Logout() // user logout the system } 函数和方法的注释 # 每个函数或方法都应有注释 需要包含函数或方法名称、函数或方法描述、函数或方法的创建作者及其创建时间、输入参数及其参数类型和解释、返回参数及其参数类型和解释 在函数或方法定义上面，书写下面的注释 // 函数或方法名称 // @Description 函数或方法描述 // @Create 作者 日期 时间 // @Param 输入参数名 参数类型 解释 // @Return 返回参数名 参数类型 解释 如果涉及到函数或方法的变更，需要写明修改作者、修改日期和时间、修改的功能描述 // @Modified 作者 日期 时间 // @Modify description 修改的功能描述 代码逻辑注释 # 每个代码块都需要添加注释 // This is my wife&amp;#39;s birthday if birthday == 1118 { .</description>
+    </item>
+    <item>
+      <title>Go Module</title>
+      <link>http://localhost:1313/blogs/go/go_module/</link>
+      <pubDate>Sat, 21 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/go/go_module/</guid>
+      <description>公共模块代理: export GOPROXY=https://goproxy.</description>
+    </item>
+    <item>
+      <title>hugo 遇到的问题</title>
+      <link>http://localhost:1313/blogs/hugo/hugo_error/</link>
+      <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/hugo/hugo_error/</guid>
+      <description>问题1 #found no layout file for &amp;#34;HTML&amp;#34; for kind &amp;#34;page&amp;#34;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.</description>
+    </item>
+    <item>
+      <title>Git 学习</title>
+      <link>http://localhost:1313/blogs/git/git_study/</link>
+      <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/git/git_study/</guid>
+      <description>原理 # 本地仓库由git维护三棵&amp;quot;树&amp;quot; 第一个是工作目录,它拥有实际的文件 第二个是暂存区，它类似于缓存的存在，临时保存你的改动 第三个是HEAD,它指向最后一次提交的结果 概念 #分支 # 分支是用来将特性开发隔离开。在你创建仓库的时候，master或main是默认的分支。我们一般在其他分支上进行开发，完成后再将它们合并到主分支上 你在本地创建的分支，如果不推送到远端仓库，这个分支就只能在本地可见 命令 # 命令只介绍在开发过程中，常用的命令 创建新的git仓库 #git init 添加到暂存区 #git add &amp;lt;filename&amp;gt; git add .</description>
+    </item>
+    <item>
+      <title>008-时间单位</title>
+      <link>http://localhost:1313/blogs/solidity/008.time_units/</link>
+      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/solidity/008.time_units/</guid>
+      <description>背景 #通过学习Solidity，然后输出文章检验自己的学习成果github仓库</description>
+    </item>
+    <item>
+      <title>007-以太币单位</title>
+      <link>http://localhost:1313/blogs/solidity/007.ether_units/</link>
+      <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/solidity/007.ether_units/</guid>
+      <description>背景 #通过学习Solidity，然后输出文章检验自己的学习成果github仓库</description>
+    </item>
+    <item>
+      <title>006-不可变变量</title>
+      <link>http://localhost:1313/blogs/solidity/006.immutable/</link>
+      <pubDate>Fri, 16 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/solidity/006.immutable/</guid>
+      <description>背景 #通过学习Solidity，然后输出文章检验自己的学习成果github仓库</description>
+    </item>
+    <item>
+      <title>005-常量</title>
+      <link>http://localhost:1313/blogs/solidity/005.constants/</link>
+      <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/solidity/005.constants/</guid>
+      <description>背景 #通过学习Solidity，然后输出文章检验自己的学习成果github仓库</description>
+    </item>
+    <item>
+      <title>004-变量</title>
+      <link>http://localhost:1313/blogs/solidity/004.variables/</link>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/solidity/004.variables/</guid>
+      <description>背景 #通过学习Solidity，然后输出文章检验自己的学习成果github仓库</description>
+    </item>
+    <item>
+      <title>003-值类型</title>
+      <link>http://localhost:1313/blogs/solidity/003.value_type/</link>
+      <pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/solidity/003.value_type/</guid>
+      <description>背景 #通过学习Solidity，然后输出文章检验自己的学习成果github仓库</description>
+    </item>
+    <item>
+      <title>002-第一个App</title>
+      <link>http://localhost:1313/blogs/solidity/002.first_app/</link>
+      <pubDate>Mon, 12 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/solidity/002.first_app/</guid>
+      <description>背景 #通过学习Solidity，然后输出文章检验自己的学习成果github仓库</description>
+    </item>
+    <item>
+      <title>001-你好，世界</title>
+      <link>http://localhost:1313/blogs/solidity/001.hello_world/</link>
+      <pubDate>Sun, 11 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/solidity/001.hello_world/</guid>
+      <description>背景 #通过学习Solidity，然后输出文章检验自己的学习成果github仓库</description>
+    </item>
+  </channel>
+</rss>

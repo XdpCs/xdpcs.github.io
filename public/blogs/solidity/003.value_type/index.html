@@ -1,0 +1,1064 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="rgb(255,255,255)" />
+  
+  <title>003-值类型 &middot; XdpCs&#39;s Website</title>
+    <meta name="title" content="003-值类型 &middot; XdpCs&#39;s Website" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.022d0ebc3b46a335eb1c7ef79b7f2de143d7cd5156d433638592ef1ce5f8554e.js"
+    integrity="sha256-Ai0OvDtGozXrHH73m38t4UPXzVFW1DNjhZLvHOX4VU4="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.1bfe14a6571bfbe3b3346bc00358ca821f04a3ba1c3f212787c4c2c6a7fba4e5.css"
+    integrity="sha256-G/4Uplcb&#43;&#43;OzNGvAA1jKgh8Eo7ocPyEnh8TCxqf7pOU="
+  />
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.f29ffdffd9ab4cc95250c3c7196b2d5dae8ee6ef0a4139451073f90183ae7e31.js"
+      integrity="sha256-8p/9/9mrTMlSUMPHGWstXa6O5u8KQTlFEHP5AYOufjE="
+      data-copy="Copy"
+      data-copied="Copied"
+    ></script>
+  
+  
+  <meta
+    name="description"
+    content="
+      Welcome to XdpCs’s blog!
+    "
+  />
+  
+  
+    <meta name="robots" content="all" />
+  
+  
+  <link rel="canonical" href="http://localhost:1313/blogs/solidity/003.value_type/" />
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="003-值类型" />
+<meta property="og:description" content="Welcome to XdpCs’s blog!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/blogs/solidity/003.value_type/" /><meta property="article:section" content="blogs" />
+<meta property="article:published_time" content="2022-09-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-13T00:00:00+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="003-值类型"/>
+<meta name="twitter:description" content="Welcome to XdpCs’s blog!"/>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Blog",
+    "name": "003-值类型",
+    "headline": "003-值类型",
+    "description": "Welcome to XdpCs’s blog!",
+    "abstract": "背景 #通过学习Solidity，然后输出文章检验自己的学习成果github仓库",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/blogs\/solidity\/003.value_type\/",
+    "author" : {
+      "@type": "Person",
+      "name": "XdpCs"
+    },
+    "copyrightYear": "2022",
+    "dateCreated": "2022-09-13T00:00:00\u002b00:00",
+    "datePublished": "2022-09-13T00:00:00\u002b00:00",
+    
+    "dateModified": "2022-09-13T00:00:00\u002b00:00",
+    
+    "keywords": ["Solidity"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "941"
+  }
+  </script>
+
+
+  
+  <meta name="author" content="XdpCs" />
+  
+    
+      <link href="mailto:xdpcsyy@gmail.com" rel="me" />
+    
+      <link href="https://github.com/XdpCs" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold pe-2 text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral print:hidden sm:py-10">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >XdpCs&rsquo;s Website</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex flex-col list-none text-end sm:flex-row">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/blogs/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Blogs</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/projects/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Projects</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/tags/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Tags</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/about/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >About</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+          
+            <li class="mb-1 group sm:mb-0 sm:me-7 sm:last:me-0">
+              <button id="search-button-m0" title="Search (/)">
+                <span
+                  class="transition-colors group-dark:hover:text-primary-400 group-hover:text-primary-600"
+                >
+                  <span class="relative inline-block align-text-bottom px-1 icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+                </span>
+              </button>
+            </li>
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        003-值类型
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2022-09-13 00:00:00 &#43;0000 UTC">13 September 2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+      </div>
+      
+    </header>
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first px-0 lg:order-last lg:max-w-xs lg:ps-8">
+          <div class="toc pe-5 print:hidden lg:sticky lg:top-10">
+            <details open class="-ms-5 mt-0 overflow-hidden rounded-lg ps-5">
+  <summary
+    class="-ms-5 block cursor-pointer bg-neutral-100 py-1 ps-5 text-lg font-semibold text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden"
+  >
+    Table of Contents
+  </summary>
+  <div class="-ms-5 border-s border-dotted border-neutral-300 py-2 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景">背景</a></li>
+    <li><a href="#基础知识">基础知识</a>
+      <ul>
+        <li><a href="#布尔类型bool">布尔类型(bool)</a></li>
+        <li><a href="#整数类型uintint">整数类型(uint、int)</a>
+          <ul>
+            <li><a href="#uint">uint</a></li>
+            <li><a href="#int">int</a></li>
+            <li><a href="#整数类型uintint的运算符">整数类型(uint、int)的运算符</a></li>
+          </ul>
+        </li>
+        <li><a href="#地址类型address">地址类型(address)</a></li>
+        <li><a href="#定长字节数组类型bytes">定长字节数组类型(bytes)</a></li>
+        <li><a href="#枚举类型enum">枚举类型(enum)</a></li>
+        <li><a href="#默认值">默认值</a></li>
+      </ul>
+    </li>
+    <li><a href="#例子">例子</a></li>
+    <li><a href="#程序解析">程序解析</a>
+      <ul>
+        <li><a href="#布尔类型bool使用的例子">布尔类型(bool)使用的例子</a></li>
+        <li><a href="#整数类型uintint使用的例子">整数类型(uint、int)使用的例子</a></li>
+        <li><a href="#地址类型address使用的例子">地址类型(address)使用的例子</a></li>
+        <li><a href="#定长字节数组类型bytes使用的例子">定长字节数组类型(bytes)使用的例子</a></li>
+        <li><a href="#枚举类型enum使用的例子">枚举类型(enum)使用的例子</a></li>
+        <li><a href="#默认值使用的例子">默认值使用的例子</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+          </div>
+        </div>
+      
+      <div class="min-w-0 min-h-0 max-w-prose grow">
+        <h2 id="背景" class="relative group">背景 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e8%83%8c%e6%99%af" aria-label="Anchor">#</a></span></h2><p>通过学习<code>Solidity</code>，然后输出文章检验自己的学习成果<a href="https://github.com/XdpCs/Solidity-learning" target="_blank" rel="noreferrer">github仓库</a></p>
+<h2 id="基础知识" class="relative group">基础知识 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86" aria-label="Anchor">#</a></span></h2><ul>
+<li>我将介绍四种在<code>Solidity</code>中可用的值类型
+<ul>
+<li>布尔类型(bool)</li>
+<li>整数类型(uint、int)</li>
+<li>地址类型(address)</li>
+<li>定长字节数组类型(bytes)</li>
+<li>枚举类型(enum)</li>
+</ul>
+</li>
+</ul>
+<h3 id="布尔类型bool" class="relative group">布尔类型(bool) <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%b8%83%e5%b0%94%e7%b1%bb%e5%9e%8bbool" aria-label="Anchor">#</a></span></h3><ul>
+<li>布尔型的取值只有两种：<code>true</code>和 <code>false</code></li>
+<li>布尔型的运算符包括：
+<ul>
+<li>比较运算符：&gt;，&gt;=，&lt;，&lt;=，==，!=</li>
+<li>与运算 &amp;&amp;</li>
+<li>或运算 ||</li>
+<li>非运算 !</li>
+<li>&amp;&amp; 和 ||运算符遵循短路规则，a||b，如果a是true,b不会被计算;a&amp;&amp;b,如果a是false,b不会被计算</li>
+<li>短路规则，会更加节省gas费用</li>
+</ul>
+</li>
+</ul>
+<h3 id="整数类型uintint" class="relative group">整数类型(uint、int) <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e6%95%b4%e6%95%b0%e7%b1%bb%e5%9e%8buintint" aria-label="Anchor">#</a></span></h3><h4 id="uint" class="relative group">uint <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#uint" aria-label="Anchor">#</a></span></h4><ul>
+<li><code>uint</code>代表无符号整数，也就是说没有负数的整数</li>
+<li>有不同的字节数的无符号整数，可供使用
+<ul>
+<li><code>uint8</code> 范围 从 0 到 $2^8-1$</li>
+<li><code>uint16</code> 范围 从 0 到 $2^{16}-1$</li>
+<li>&hellip; 以<code>8</code>位为递增</li>
+<li><code>uint256</code> 范围 从 0 到 $2^{256}-1$</li>
+</ul>
+</li>
+</ul>
+<h4 id="int" class="relative group">int <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#int" aria-label="Anchor">#</a></span></h4><ul>
+<li><code>int</code>表示有符号整数，在int中允许有<code>负数</code>存在</li>
+<li><code>int</code>表示的范围与<code>uint</code>表示的范围不同
+<ul>
+<li><code>int8</code> 范围 从 $-2^7$ 到 $2^7-1$</li>
+<li><code>int16</code> 范围 从 $-2^{15}$ 到 $2^{15}-1$</li>
+<li>&hellip; 以<code>8</code>位为递增</li>
+<li><code>int256</code> 范围 从 $-2^{255}$ 到 $2^{255}-1$</li>
+</ul>
+</li>
+</ul>
+<h4 id="整数类型uintint的运算符" class="relative group">整数类型(uint、int)的运算符 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e6%95%b4%e6%95%b0%e7%b1%bb%e5%9e%8buintint%e7%9a%84%e8%bf%90%e7%ae%97%e7%ac%a6" aria-label="Anchor">#</a></span></h4><ul>
+<li>比较运算符： &lt;=， &lt;， ==， !=， &gt;=， &gt;</li>
+<li>算数运算符： +，-，-（一元运算符），*，/，%（取余），**（幂）</li>
+</ul>
+<h3 id="地址类型address" class="relative group">地址类型(address) <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%9c%b0%e5%9d%80%e7%b1%bb%e5%9e%8baddress" aria-label="Anchor">#</a></span></h3><ul>
+<li>address类型是一个<code>20</code>字节的值</li>
+<li>地址类型有两种
+<ul>
+<li>普通地址（address）：可以调用<code>call</code>, <code>delegatecall</code> 和 <code>staticcall</code>成员方法</li>
+<li>payable address: 比普通地址多了<code>transfer</code>和<code>send</code>两个成员方法用于转账，和一个成员变量<code>balance</code>用于查询余额</li>
+</ul>
+</li>
+</ul>
+<h3 id="定长字节数组类型bytes" class="relative group">定长字节数组类型(bytes) <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%ae%9a%e9%95%bf%e5%ad%97%e8%8a%82%e6%95%b0%e7%bb%84%e7%b1%bb%e5%9e%8bbytes" aria-label="Anchor">#</a></span></h3><ul>
+<li><code>bytes</code>表示一个字节序列</li>
+<li><code>Solidity</code>提供了两种字节类型：
+<ul>
+<li>固定大小的字节数组
+<ul>
+<li>固定大小的字节数组属于值类型</li>
+<li>固定大小的字节数组存储数据会更节省gas费用</li>
+</ul>
+</li>
+<li>动态大小的字节数组
+<ul>
+<li>动态大小的字节数组不属于值类型，在后面会讲</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>bytes1, bytes2, bytes3, ..., bytes32</code> 代表从<code>1</code>到<code>32</code>的字节序列</li>
+<li><code>bytes</code>类型的运算符：
+<ul>
+<li>比较运算符：&lt;=， &lt;， ==， !=， &gt;=， &gt;</li>
+<li>位运算符： &amp;， |， ^ （按位异或）， ~ （按位取反）</li>
+<li>移位运算符： &laquo; （左移位）， &raquo; （右移位）</li>
+<li>索引访问： 如果<code>x</code>是<code>bytesI</code>类型，那么当<code>0 &lt;= k &lt; I</code>时，<code>x[k]</code>返回第<code>k</code>个字节（只读）</li>
+</ul>
+</li>
+<li>移位运算符以无符号的整数类型作为右操作数（但返回左操作数的类型），它表示要移位的位数。有符号类型的移位将产生一个编译错误</li>
+<li>成员变量：
+<ul>
+<li><code>.length</code>: 这个字节数组的长度（只读）</li>
+</ul>
+</li>
+</ul>
+<h3 id="枚举类型enum" class="relative group">枚举类型(enum) <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e6%9e%9a%e4%b8%be%e7%b1%bb%e5%9e%8benum" aria-label="Anchor">#</a></span></h3><ul>
+<li>枚举类型用于表示一组有限的值，它们对于建模选择和跟踪状态很有用</li>
+<li>枚举类型的声明：
+<ul>
+<li><code>enum</code> 枚举名称 { 枚举值1, 枚举值2, &hellip; }</li>
+<li>枚举值的类型是<code>uint8</code>，从<code>0</code>开始递增，不能超过<code>256</code>个</li>
+</ul>
+</li>
+<li>枚举可以声明在合约外面并从其他合约中导入</li>
+<li>枚举可以显式的和<code>uint8</code>进行相互转换，并且会检查所转换的无符号整数是否在枚举长度范围内</li>
+</ul>
+<h3 id="默认值" class="relative group">默认值 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e9%bb%98%e8%ae%a4%e5%80%bc" aria-label="Anchor">#</a></span></h3><ul>
+<li>未赋值的变量有一个默认值
+<ul>
+<li><code>布尔类型(bool)</code>为<code>false</code></li>
+<li><code>整数类型(uint、int)</code>为<code>0</code></li>
+<li><code>地址类型(address)</code>为<code>0x0000000000000000000000000000000000000000</code></li>
+<li><code>定长字节数组类型(bytes)</code>为<code>0</code>，根据长度决定，比如<code>bytes2</code>为<code>0x0000</code></li>
+<li><code>枚举类型(enum)</code>为<code>0</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="例子" class="relative group">例子 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e4%be%8b%e5%ad%90" aria-label="Anchor">#</a></span></h2><p><a href="https://github.com/XdpCs/Solidity-learning/blob/master/Solidity/003.ValueType/ValueType.sol" target="_blank" rel="noreferrer">例子</a></p>
+<p>该例子是值类型使用的例子</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="c1">// SPDX-License-Identifier: MIT
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">ValueType</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="k">public</span> <span class="n">b</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="k">public</span> <span class="n">b1</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">&gt;</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="k">public</span> <span class="n">b2</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">&gt;=</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="k">public</span> <span class="n">b3</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">&lt;</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="k">public</span> <span class="n">b4</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">&lt;=</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="k">public</span> <span class="n">b5</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">==</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="k">public</span> <span class="n">b6</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">!=</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="k">public</span> <span class="n">b7</span> <span class="o">=</span> <span class="o">!</span><span class="n">b</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="k">public</span> <span class="n">b8</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">&amp;&amp;</span> <span class="n">b2</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="k">public</span> <span class="n">b9</span> <span class="o">=</span> <span class="n">b3</span> <span class="o">&amp;&amp;</span> <span class="n">b1</span><span class="p">;</span> <span class="c1">// false,发生短路运算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="k">public</span> <span class="n">b10</span> <span class="o">=</span> <span class="n">b3</span> <span class="o">||</span> <span class="n">b4</span><span class="p">;</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="k">public</span> <span class="n">b11</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">||</span> <span class="n">b3</span><span class="p">;</span> <span class="c1">// true,发生短路运算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint8</span> <span class="k">public</span> <span class="n">u8</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint24</span> <span class="k">public</span> <span class="n">u24</span> <span class="o">=</span> <span class="mi">1118</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint</span> <span class="k">public</span> <span class="n">u256</span> <span class="o">=</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// uint是uint256的别称
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int8</span> <span class="k">public</span> <span class="n">i8</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">18</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int24</span> <span class="k">public</span> <span class="n">i24</span> <span class="o">=</span> <span class="mi">1118</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="k">public</span> <span class="n">i256</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// int是int256的别称
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="k">public</span> <span class="n">minInt</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="nc">int</span><span class="p">).</span><span class="nb">min</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="k">public</span> <span class="n">maxInt</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="nc">int</span><span class="p">).</span><span class="nb">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="k">public</span> <span class="n">int_1</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">1114</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="k">public</span> <span class="n">int_2</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">+</span> <span class="mi">1114</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="k">public</span> <span class="n">int_3</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">-</span> <span class="mi">1114</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="k">public</span> <span class="n">int_4</span> <span class="o">=</span> <span class="mi">18</span> <span class="o">*</span> <span class="mi">14</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="k">public</span> <span class="n">int_5</span> <span class="o">=</span> <span class="mi">18</span> <span class="o">/</span> <span class="mi">18</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="k">public</span> <span class="n">int_6</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">%</span> <span class="mi">1114</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="k">public</span> <span class="n">int_7</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">address</span> <span class="k">public</span> <span class="n">addr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">constructor</span> <span class="p">()</span><span class="k">payable</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">getEth</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">addr</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">address</span>  <span class="k">payable</span> <span class="n">_addr</span> <span class="o">=</span> <span class="k">payable</span><span class="p">(</span><span class="n">addr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_addr</span><span class="p">.</span><span class="nb">transfer</span><span class="p">(</span><span class="mi">1</span> <span class="kc">ether</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">bytes1</span> <span class="k">public</span> <span class="n">a1</span> <span class="o">=</span> <span class="mh">0xb5</span><span class="p">;</span> <span class="c1">// [10110101]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bytes2</span> <span class="k">public</span> <span class="n">a2</span> <span class="o">=</span> <span class="mh">0xb556</span><span class="p">;</span> <span class="c1">// [1011010101010110]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bytes1</span> <span class="k">public</span> <span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">// [10110101]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="kd">enum</span> <span class="nc">Status</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Pending</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Shipped</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Accepted</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Rejected</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Canceled</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Status</span> <span class="k">public</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Status</span> <span class="k">public</span> <span class="n">maxEnum</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="nc">Status</span><span class="p">).</span><span class="nb">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Status</span> <span class="k">public</span> <span class="n">minEnum</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="nc">Status</span><span class="p">).</span><span class="nb">min</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">get</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="n">Status</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">set</span><span class="p">(</span><span class="n">Status</span> <span class="n">_status</span><span class="p">)</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status</span> <span class="o">=</span> <span class="n">_status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">cancel</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status</span> <span class="o">=</span> <span class="n">Status</span><span class="p">.</span><span class="n">Canceled</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">reject</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status</span> <span class="o">=</span> <span class="n">Status</span><span class="p">.</span><span class="n">Rejected</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">accept</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status</span> <span class="o">=</span> <span class="n">Status</span><span class="p">.</span><span class="n">Accepted</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">ship</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status</span> <span class="o">=</span> <span class="n">Status</span><span class="p">.</span><span class="n">Shipped</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">pending</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status</span> <span class="o">=</span> <span class="n">Status</span><span class="p">.</span><span class="n">Pending</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">reset</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">delete</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">delete</span> <span class="n">a1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">delete</span> <span class="n">b1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">delete</span> <span class="n">u8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">delete</span> <span class="n">i8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">delete</span> <span class="n">addr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="k">public</span> <span class="n">defaultBoo</span><span class="p">;</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint</span> <span class="k">public</span> <span class="n">defaultUint</span><span class="p">;</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="k">public</span> <span class="n">defaultInt</span><span class="p">;</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">address</span> <span class="k">public</span> <span class="n">defaultAddr</span><span class="p">;</span> <span class="c1">// 0x0000000000000000000000000000000000000000
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bytes2</span> <span class="k">public</span> <span class="n">defaultBytes</span><span class="p">;</span> <span class="c1">// 0x0000
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Status</span> <span class="k">public</span> <span class="n">defaultEnum</span><span class="p">;</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h2 id="程序解析" class="relative group">程序解析 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e7%a8%8b%e5%ba%8f%e8%a7%a3%e6%9e%90" aria-label="Anchor">#</a></span></h2><h3 id="布尔类型bool使用的例子" class="relative group">布尔类型(bool)使用的例子 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%b8%83%e5%b0%94%e7%b1%bb%e5%9e%8bbool%e4%bd%bf%e7%94%a8%e7%9a%84%e4%be%8b%e5%ad%90" aria-label="Anchor">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kt">bool</span> <span class="k">public</span> <span class="n">b</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="k">public</span> <span class="n">b1</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">&gt;</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="k">public</span> <span class="n">b2</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">&gt;=</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="k">public</span> <span class="n">b3</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">&lt;</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="k">public</span> <span class="n">b4</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">&lt;=</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="k">public</span> <span class="n">b5</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">==</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="k">public</span> <span class="n">b6</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">!=</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="k">public</span> <span class="n">b7</span> <span class="o">=</span> <span class="o">!</span><span class="n">b</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="k">public</span> <span class="n">b8</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">&amp;&amp;</span> <span class="n">b2</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="k">public</span> <span class="n">b9</span> <span class="o">=</span> <span class="n">b3</span> <span class="o">&amp;&amp;</span> <span class="n">b1</span><span class="p">;</span> <span class="c1">// false,发生短路运算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="k">public</span> <span class="n">b10</span> <span class="o">=</span> <span class="n">b3</span> <span class="o">||</span> <span class="n">b4</span><span class="p">;</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="k">public</span> <span class="n">b11</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">||</span> <span class="n">b3</span><span class="p">;</span> <span class="c1">// true,发生短路运算
+</span></span></span></code></pre></div><ul>
+<li>布尔类型(bool)运算符的使用和赋值</li>
+</ul>
+<h3 id="整数类型uintint使用的例子" class="relative group">整数类型(uint、int)使用的例子 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e6%95%b4%e6%95%b0%e7%b1%bb%e5%9e%8buintint%e4%bd%bf%e7%94%a8%e7%9a%84%e4%be%8b%e5%ad%90" aria-label="Anchor">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kt">uint8</span> <span class="k">public</span> <span class="n">u8</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint24</span> <span class="k">public</span> <span class="n">u24</span> <span class="o">=</span> <span class="mi">1118</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint</span> <span class="k">public</span> <span class="n">u256</span> <span class="o">=</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// uint是uint256的别称
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int8</span> <span class="k">public</span> <span class="n">i8</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">18</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int24</span> <span class="k">public</span> <span class="n">i24</span> <span class="o">=</span> <span class="mi">1118</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="k">public</span> <span class="n">i256</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">1114</span><span class="p">;</span> <span class="c1">// int是int256的别称
+</span></span></span></code></pre></div><ul>
+<li>整数类型(uint、int)的赋值</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kt">int</span> <span class="k">public</span> <span class="n">minInt</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="nc">int</span><span class="p">).</span><span class="nb">min</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="k">public</span> <span class="n">maxInt</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="nc">int</span><span class="p">).</span><span class="nb">max</span><span class="p">;</span>
+</span></span></code></pre></div><ul>
+<li>int的最大值和最小值</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kt">int</span> <span class="k">public</span> <span class="n">int_1</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">1114</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="k">public</span> <span class="n">int_2</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">+</span> <span class="mi">1114</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="k">public</span> <span class="n">int_3</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">-</span> <span class="mi">1114</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="k">public</span> <span class="n">int_4</span> <span class="o">=</span> <span class="mi">18</span> <span class="o">*</span> <span class="mi">14</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="k">public</span> <span class="n">int_5</span> <span class="o">=</span> <span class="mi">18</span> <span class="o">/</span> <span class="mi">18</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="k">public</span> <span class="n">int_6</span> <span class="o">=</span> <span class="mi">1118</span> <span class="o">%</span> <span class="mi">1114</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="k">public</span> <span class="n">int_7</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">10</span><span class="p">;</span>
+</span></span></code></pre></div><ul>
+<li>运算符的例子，如果想看运算符的例子，可以看上面<code>布尔类型</code>的例子</li>
+</ul>
+<h3 id="地址类型address使用的例子" class="relative group">地址类型(address)使用的例子 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%9c%b0%e5%9d%80%e7%b1%bb%e5%9e%8baddress%e4%bd%bf%e7%94%a8%e7%9a%84%e4%be%8b%e5%ad%90" aria-label="Anchor">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kt">address</span> <span class="k">public</span> <span class="n">addr</span><span class="p">;</span>
+</span></span></code></pre></div><ul>
+<li>声明了一个地址类型(address)叫<code>addr</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kd">constructor</span> <span class="p">()</span><span class="k">payable</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li><code>constructor</code> 表示构造函数，只会在合约部署的时候，调用一次</li>
+<li>构造函数用<code>payable</code>修饰，保证部署合约的时候，能打入<code>eth</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">getEth</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">addr</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">address</span>  <span class="k">payable</span> <span class="n">_addr</span> <span class="o">=</span> <span class="k">payable</span><span class="p">(</span><span class="n">addr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_addr</span><span class="p">.</span><span class="nb">transfer</span><span class="p">(</span><span class="mi">1</span> <span class="kc">ether</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>用户调用此函数，可以从合约中提取一个<code>ether</code>到自己的账户，所以部署合约的时候，一定打入一个<code>ether</code>以上，否则调用这个函数会失败</li>
+</ul>
+<h3 id="定长字节数组类型bytes使用的例子" class="relative group">定长字节数组类型(bytes)使用的例子 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%ae%9a%e9%95%bf%e5%ad%97%e8%8a%82%e6%95%b0%e7%bb%84%e7%b1%bb%e5%9e%8bbytes%e4%bd%bf%e7%94%a8%e7%9a%84%e4%be%8b%e5%ad%90" aria-label="Anchor">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kt">bytes1</span> <span class="k">public</span> <span class="n">a1</span> <span class="o">=</span> <span class="mh">0xb5</span><span class="p">;</span> <span class="c1">// [10110101]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bytes2</span> <span class="k">public</span> <span class="n">a2</span> <span class="o">=</span> <span class="mh">0xb556</span><span class="p">;</span> <span class="c1">// [1011010101010110]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bytes1</span> <span class="k">public</span> <span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">// [10110101]
+</span></span></span></code></pre></div><ul>
+<li>定长字节数组类型(bytes)的赋值</li>
+</ul>
+<h3 id="枚举类型enum使用的例子" class="relative group">枚举类型(enum)使用的例子 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e6%9e%9a%e4%b8%be%e7%b1%bb%e5%9e%8benum%e4%bd%bf%e7%94%a8%e7%9a%84%e4%be%8b%e5%ad%90" aria-label="Anchor">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kd">enum</span> <span class="nc">Status</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Pending</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Shipped</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Accepted</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Rejected</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Canceled</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">Status</span> <span class="k">public</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Status</span> <span class="k">public</span> <span class="n">maxEnum</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="nc">Status</span><span class="p">).</span><span class="nb">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Status</span> <span class="k">public</span> <span class="n">minEnum</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="nc">Status</span><span class="p">).</span><span class="nb">min</span><span class="p">;</span>
+</span></span></code></pre></div><ul>
+<li>Status表示发货状态，并声明了status，默认值为&quot;Pending&quot;</li>
+<li>通过<code>type(Status).max</code> 和 <code>type(Status).min</code> ，可以得到枚举类型(enum)的最大值和最小值</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">get</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="n">Status</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>返回值为Status类型
+<ul>
+<li>Pending为0</li>
+<li>Shipped为1</li>
+<li>Accepted为2</li>
+<li>Rejected为3</li>
+<li>Canceled为4</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">set</span><span class="p">(</span><span class="n">Status</span> <span class="n">_status</span><span class="p">)</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">status</span> <span class="o">=</span> <span class="n">_status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>通过输入uint类型数字更新status变量，若大于枚举(enum)范围，会交易失败</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">cancel</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">status</span> <span class="o">=</span> <span class="n">Status</span><span class="p">.</span><span class="n">Canceled</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>更新status为<code>Canceled</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nf">reject</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">status</span> <span class="o">=</span> <span class="n">Status</span><span class="p">.</span><span class="n">Rejected</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>更新status为<code>Rejected</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">accept</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">status</span> <span class="o">=</span> <span class="n">Status</span><span class="p">.</span><span class="n">Accepted</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>更新status为<code>Accepted</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">ship</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">status</span> <span class="o">=</span> <span class="n">Status</span><span class="p">.</span><span class="n">Shipped</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>更新status为<code>Shipped</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">pending</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">status</span> <span class="o">=</span> <span class="n">Status</span><span class="p">.</span><span class="n">Pending</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>更新status为<code>Pending</code></li>
+</ul>
+<h3 id="默认值使用的例子" class="relative group">默认值使用的例子 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e9%bb%98%e8%ae%a4%e5%80%bc%e4%bd%bf%e7%94%a8%e7%9a%84%e4%be%8b%e5%ad%90" aria-label="Anchor">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">reset</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">a1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">b1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">u8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">i8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">addr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>使用<code>delete</code>关键字，可以将该变量，恢复成默认值</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kt">bool</span> <span class="k">public</span> <span class="n">defaultBoo</span><span class="p">;</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">uint</span> <span class="k">public</span> <span class="n">defaultUint</span><span class="p">;</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="k">public</span> <span class="n">defaultInt</span><span class="p">;</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">address</span> <span class="k">public</span> <span class="n">defaultAddr</span><span class="p">;</span> <span class="c1">// 0x0000000000000000000000000000000000000000
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bytes2</span> <span class="k">public</span> <span class="n">defaultBytes</span><span class="p">;</span> <span class="c1">// 0x0000
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Status</span> <span class="k">public</span> <span class="n">defaultEnum</span><span class="p">;</span> <span class="c1">// 0
+</span></span></span></code></pre></div><ul>
+<li>声明变量未赋值，变量的值是默认值</li>
+</ul>
+
+      </div>
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  <div class="flex">
+    
+      
+      
+        
+        <img
+          class="!mb-0 !mt-0 me-4 h-24 w-24 rounded-full"
+          width="96"
+          height="96"
+          alt="XdpCs"
+          src="/images/avatar_huc8b161a03df043f9d53de693612f3802_13298_192x192_fill_q75_box_center.jpeg"
+          
+            loading="lazy"
+          
+        />
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          XdpCs
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">Talking about technology with a glow in the eye.</div>
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="mailto:xdpcsyy@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://github.com/XdpCs"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+  
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/blogs/solidity/003.value_type/&amp;quote=003-%e5%80%bc%e7%b1%bb%e5%9e%8b"
+          title="Share on Facebook"
+          aria-label="Share on Facebook"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://twitter.com/intent/tweet/?url=http://localhost:1313/blogs/solidity/003.value_type/&amp;text=003-%e5%80%bc%e7%b1%bb%e5%9e%8b"
+          title="Tweet on Twitter"
+          aria-label="Tweet on Twitter"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/blogs/solidity/003.value_type/&amp;description=003-%e5%80%bc%e7%b1%bb%e5%9e%8b"
+          title="Pin on Pinterest"
+          aria-label="Pin on Pinterest"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://reddit.com/submit/?url=http://localhost:1313/blogs/solidity/003.value_type/&amp;resubmit=true&amp;title=003-%e5%80%bc%e7%b1%bb%e5%9e%8b"
+          title="Submit to Reddit"
+          aria-label="Submit to Reddit"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/blogs/solidity/003.value_type/&amp;title=003-%e5%80%bc%e7%b1%bb%e5%9e%8b"
+          title="Share on LinkedIn"
+          aria-label="Share on LinkedIn"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="mailto:?body=http://localhost:1313/blogs/solidity/003.value_type/&amp;subject=003-%e5%80%bc%e7%b1%bb%e5%9e%8b"
+          title="Send via email"
+          aria-label="Send via email"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+</span></a
+        >
+      
+    
+  </section>
+
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="/blogs/solidity/002.first_app/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >002-第一个App</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2022-09-12 00:00:00 &#43;0000 UTC">12 September 2022</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="/blogs/solidity/004.variables/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >004-变量</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2022-09-14 00:00:00 &#43;0000 UTC">14 September 2022</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+        
+          <div class="pt-3">
+            <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+            <div class="pt-3">
+              <script src="https://utteranc.es/client.js"
+        repo="XdpCs/xdpcs.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-dark-orange"
+        crossorigin="anonymous"
+        async>
+</script>
+            </div>
+          </div>
+        
+      
+    </footer>
+  </article>
+
+        
+          <div class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12">
+            <a
+              href="#the-top"
+              class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+              aria-label="Scroll to top"
+              title="Scroll to top"
+            >
+              &uarr;
+            </a>
+          </div>
+        
+      </main><footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            © Alan Xu
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+    </div>
+  </div>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 z-50 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative inline-block align-text-bottom px-1 icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        <span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+</html>
