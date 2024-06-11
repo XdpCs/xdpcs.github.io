@@ -1,6 +1,6 @@
 ---
 title: flt-withdraw
-date: 2022-04-18
+date: 2023-04-18
 weight: 30
 description: flt tokens withdraw.
 tags: [ web3 ]
